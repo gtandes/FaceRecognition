@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send(database.users);
+  res.send("It is working");
 });
 
 // just for experimentation purposes with es6 async functions
@@ -49,9 +49,6 @@ app.post("/imageurl", (req, res) => {
   image.handleAPICall(req, res);
 });
 
-// const PORT = process.env.PORT;
-const DATABASE_URL = process.env.DATABASE_URL;
-
-app.listen(3000, () => {
-  console.log(`Server is running on port ${DATABASE_URL}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Server is running on port ${process.env.PORT}`);
 });
